@@ -37,19 +37,19 @@
         document.getElementById('imageUpload').addEventListener('change', 
         async function(event) 
         {
-            const file = event.target.files[0]; // To Learn
+            const file = event.target.files[0]; 
             const formData = new FormData();
             formData.append('file', file);
 
-            const response = await fetch('/segment', // To Learn (API)
+            const response = await fetch('/segment',
             { 
                 method: 'POST',
                 body: formData
             });
-            const data = await response.json(); // To Learn
+            const data = await response.json();
 
-            document.getElementById('originalImage').src = URL.createObjectURL(file); // To Learn
-            document.getElementById('segmentedImage').src = 'data:image/png;base64,' + data.image; // To Learn
+            document.getElementById('originalImage').src = URL.createObjectURL(file); 
+            document.getElementById('segmentedImage').src = 'data:image/png;base64,' + data.image; 
         });
     </script>
 </body>
