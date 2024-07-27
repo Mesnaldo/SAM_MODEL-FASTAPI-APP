@@ -1,11 +1,10 @@
 from fastapi import FastAPI, UploadFile, File
 import cv2
 import numpy as np
-# To Learn
 import base64
-from fastapi.responses import JSONResponse, HTMLResponse # To Learn
+from fastapi.responses import JSONResponse, HTMLResponse 
 from segment_anything import sam_model_registry, SamAutomaticMaskGenerator
-import supervision as sv # To Learn
+import supervision as sv 
 import os
 
 app = FastAPI()
