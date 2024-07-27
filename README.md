@@ -10,7 +10,8 @@ Result Display: The segmented images are displayed on the same web interface.
 Dockerized Deployment: The application can be easily deployed using Docker.
 
 You can also run the app as a container from the docker hub
-To pull the image you can following command : docker push shyamshanckin/fastapi-sam-app:tagname 
+To pull the image you can following command : docker pull shyamshanckin/fastapi-sam-app:latest
+
 
 Technologies Used
 
