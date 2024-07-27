@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SAM - Segment Anything!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        #imageUpload {
+            margin: 20px 0;
+        }
+        #originalImage, #segmentedImage {
+            max-width: 500px;
+            margin-top: 10px;
+        }
+        .created-by {
+            font-size: 12px;
+            color: midnightblue;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>SAM - Segment Anything!</h1>
+    <input type="file" id="imageUpload" accept="image/*">
+    <div>
+        <img id="originalImage">
+        <img id="segmentedImage">
+    </div>
+    <p class="created-by">Created by: @Shyam Shanckin</p>
+    <script>
+        document.getElementById('imageUpload').addEventListener('change', 
+        async function(event) 
+        {
+            const file = event.target.files[0]; // To Learn
+            const formData = new FormData();
+            formData.append('file', file);
+
+            const response = await fetch('/segment', // To Learn (API)
+            { 
+                method: 'POST',
+                body: formData
+            });
+            const data = await response.json(); // To Learn
+
+            document.getElementById('originalImage').src = URL.createObjectURL(file); // To Learn
+            document.getElementById('segmentedImage').src = 'data:image/png;base64,' + data.image; // To Learn
+        });
+    </script>
+</body>
+</html>
